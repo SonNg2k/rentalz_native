@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">RentalZ</string>
+    <string name="apartment_detail">Apartment Detail</string>
+    <string name="apartment_name">Apartment name</string>
+    <string name="reporter_name">Reporter\'s name</string>
+    <string name="address">Address</string>
+    <string name="n_bedrooms">Number of bedrooms</string>
+    <string name="monthly_price">Monthly rental price</string>
+    <string name="note">Note (optional)</string>
+    <string name="submit">Submit</string>
+</resources>
