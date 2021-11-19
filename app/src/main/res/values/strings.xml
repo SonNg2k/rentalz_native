@@ -28,7 +28,7 @@
     <string name="unfurnished">Unfurnished</string>
 
     <string name="n_bedrooms">Number of bedrooms</string>
-    <string name="monthly_price">Monthly rental price</string>
+    <string name="monthly_price">Monthly rental price in US Dollar</string>
     <string name="note">Note (optional)</string>
     <string name="submit">Submit</string>
 </resources>

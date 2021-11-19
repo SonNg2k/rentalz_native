@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.app.AlertDialog;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         final String note = Objects.requireNonNull(noteField.getEditText()).getText().toString().trim();
 
         // Add data to the bundle...
-        Bundle formData = new Bundle();
+        final Bundle formData = new Bundle();
         formData.putString("apartmentName", apartmentName);
         formData.putString("reporterName", reporterName);
         formData.putString("address", address);
@@ -75,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
     /// If empty string is returned, it means there is no validation error.
     private String requiredValidator() {
-        Bundle formData = getFormData();
+        final Bundle formData = getFormData();
         if (TextUtils.isEmpty(formData.getString("apartmentName")))
             return "⚠️ Apartment name is required";
 
@@ -100,6 +101,33 @@ public class MainActivity extends AppCompatActivity {
         return "";
     }
 
+    private void showConfirmationDialog() {
+        final Bundle formData = getFormData();
+        String summaryData = "▶ Apartment name: " + formData.getString("apartmentName") + "\n";
+        summaryData += "▶ Reporter's name: " + formData.getString("reporterName") + "\n";
+        summaryData += "▶ Address: " + formData.getString("address") + "\n";
+        summaryData += "▶ Apartment type: " + formData.getString("type") + "\n";
+        summaryData += "▶ Comfort level: " + formData.getString("comfortLevel") + "\n";
+        summaryData += "▶ Number of bedrooms: " + formData.getString("nBedrooms") + "\n";
+        summaryData += "▶ Monthly rental price in US Dollar: " + formData.getString("monthlyPrice") + "\n";
+        summaryData += "▶ Note: " + formData.get("note");
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                .setMessage(summaryData)
+                .setTitle("Check your data one more time");
+        // Add the buttons
+        builder.setPositiveButton("CONFIRM", (dialog, id) -> {
+            // User clicked OK button
+            showEphemeralSnackBar("You have entered all the required data, but there's no database to save this 😢.");
+        });
+        builder.setNegativeButton("DECLINE", (dialog, id) -> {
+            // User cancelled the dialog
+        });
+
+        // Create the AlertDialog
+        builder.create().show();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
         submitBtn.setOnClickListener(v -> {
             String errorMsg = requiredValidator();
             if (!errorMsg.isEmpty()) showEphemeralSnackBar(errorMsg);
+            else showConfirmationDialog();
         });
 
         /// Logics to handle the on-item-selected event emitted by the spinner of apartment types...
