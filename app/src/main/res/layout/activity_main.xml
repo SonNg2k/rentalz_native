@@ -1,133 +1,178 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?><!--    Snackbars work best if they are displayed inside of a CoordinatorLayout. CoordinatorLayout
+allows the Snackbar to enable behavior like swipe-to-dismiss, as well as automatically moving
+widgets like FloatingActionButton.-->
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/CoordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:scrollbars="vertical"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="24dp"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:scrollbars="vertical">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="24dp"
             android:gravity="center"
-            android:padding="8dp"
-            android:text="@string/apartment_detail"
-            android:textColor="@color/blue"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:orientation="vertical">
 
-        <!--    Apartment name-->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/name_field"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp">
-
-            <com.google.android.material.textfield.TextInputEditText
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/apartment_name"
-                android:inputType="text"
-                android:textColorHint="@color/text_color_hint"
-                tools:ignore="TextContrastCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="@string/apartment_detail"
+                android:textColor="@color/blue"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
-        <!--    Reporter's name-->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/reporter_name_field"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp">
-
-            <com.google.android.material.textfield.TextInputEditText
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/name_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/reporter_name"
-                android:inputType="textPersonName"
-                android:textColorHint="@color/text_color_hint"
-                tools:ignore="TextContrastCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginTop="24dp">
 
-        <!--        Address-->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/address_field"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/apartment_name"
+                    android:inputType="text"
+                    android:textColorHint="@color/text_color_hint"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/reporter_name_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/address"
-                android:inputType="textPostalAddress"
-                tools:ignore="TextContrastCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginTop="24dp">
 
-        <!--        Number of bedrooms-->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/n_bedrooms_field"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/reporter_name"
+                    android:inputType="textPersonName"
+                    android:textColorHint="@color/text_color_hint"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/address_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:hint="@string/n_bedrooms"
-                android:inputType="numberSigned"
-                android:maxLength="2"
-                tools:ignore="TextContrastCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginTop="24dp">
 
-        <!--        Monthly rental price-->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/monthly_price_field"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/address"
+                    android:inputType="textPostalAddress"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
+            <Spinner
+                android:id="@+id/apartment_types_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:hint="@string/monthly_price"
-                android:inputType="numberSigned"
-                android:maxLength="5"
-                tools:ignore="TextContrastCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:minHeight="48dp"
+                tools:ignore="SpeakableTextPresentCheck" />
 
-        <!--        Note-->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/note_field"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp">
+            <RadioGroup
+                android:id="@+id/comfortLevelRadioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="24dp">
 
-            <com.google.android.material.textfield.TextInputEditText
+                <TextView
+                    android:id="@+id/comfortLevelLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/comfort_level_label"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/unfurnished_option"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/unfurnished" />
+
+                <RadioButton
+                    android:id="@+id/semi_furnished_option"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/semi_furnished" />
+
+                <RadioButton
+                    android:id="@+id/furnished_option"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:text="@string/furnished" />
+            </RadioGroup>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/n_bedrooms_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:hint="@string/n_bedrooms"
+                    android:inputType="numberSigned"
+                    android:maxLength="2"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/monthly_price_field"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:hint="@string/monthly_price"
+                    android:inputType="numberSigned"
+                    android:maxLength="5"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/note_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="top|start"
-                android:hint="@string/note"
-                android:inputType="textMultiLine"
-                android:lines="@null"
-                android:maxLength="600"
+                android:layout_marginTop="24dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top|start"
+                    android:hint="@string/note"
+                    android:inputType="textMultiLine"
+                    android:lines="@null"
+                    android:maxLength="600"
+                    tools:ignore="TextContrastCheck" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/submit"
+                android:textColor="@color/white"
                 tools:ignore="TextContrastCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="@string/submit"
-            android:textColor="@color/white"
-            tools:ignore="TextContrastCheck" />
-    </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
-</androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

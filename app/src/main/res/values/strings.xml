@@ -4,6 +4,29 @@
     <string name="apartment_name">Apartment name</string>
     <string name="reporter_name">Reporter\'s name</string>
     <string name="address">Address</string>
+
+    <string-array name="apartment_types_array">
+        <item>Select apartment type</item>
+        <item>Studio</item>
+        <item>Duplex</item>
+        <item>Triplex</item>
+        <item>Garden</item>
+        <item>Loft</item>
+        <item>Penthouse</item>
+        <item>Micro</item>
+        <item>Walk-Up</item>
+        <item>Basement</item>
+        <item>Co-Op</item>
+        <item>High-Rise</item>
+        <item>Mid-Rise</item>
+        <item>Low-Rise</item>
+    </string-array>
+
+    <string name="comfort_level_label">Choose a level of comfort</string>
+    <string name="furnished">Furnished</string>
+    <string name="semi_furnished">Semi-furnished</string>
+    <string name="unfurnished">Unfurnished</string>
+
     <string name="n_bedrooms">Number of bedrooms</string>
     <string name="monthly_price">Monthly rental price</string>
     <string name="note">Note (optional)</string>
