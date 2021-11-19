@@ -16,6 +16,10 @@ import android.app.AlertDialog;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 
+import 	java.util.Date;
+import java.text.DateFormat;
+import java.util.Locale;
+import java.text.SimpleDateFormat;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -112,13 +116,15 @@ public class MainActivity extends AppCompatActivity {
         summaryData += "▶ Monthly rental price in US Dollar: " + formData.getString("monthlyPrice") + "\n";
         summaryData += "▶ Note: " + formData.get("note");
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this)
                 .setMessage(summaryData)
                 .setTitle("Check your data one more time");
         // Add the buttons
         builder.setPositiveButton("CONFIRM", (dialog, id) -> {
             // User clicked OK button
-            showEphemeralSnackBar("You have entered all the required data, but there's no database to save this 😢.");
+            final DateFormat df = new SimpleDateFormat("KK:mm:ss a, dd/MM/yyyy", Locale.getDefault());
+            final String currentDateAndTime = df.format(new Date());
+            showEphemeralSnackBar("You have entered all the required data at " + currentDateAndTime);
         });
         builder.setNegativeButton("DECLINE", (dialog, id) -> {
             // User cancelled the dialog
