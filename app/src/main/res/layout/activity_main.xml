@@ -2,6 +2,7 @@
 allows the Snackbar to enable behavior like swipe-to-dismiss, as well as automatically moving
 widgets like FloatingActionButton.-->
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/CoordinatorLayout"
     android:layout_width="match_parent"
@@ -41,6 +42,7 @@ widgets like FloatingActionButton.-->
                     android:layout_height="wrap_content"
                     android:hint="@string/apartment_name"
                     android:inputType="text"
+                    android:maxLength="40"
                     android:textColorHint="@color/text_color_hint"
                     tools:ignore="TextContrastCheck" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -56,6 +58,7 @@ widgets like FloatingActionButton.-->
                     android:layout_height="wrap_content"
                     android:hint="@string/reporter_name"
                     android:inputType="textPersonName"
+                    android:maxLength="64"
                     android:textColorHint="@color/text_color_hint"
                     tools:ignore="TextContrastCheck" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -71,6 +74,7 @@ widgets like FloatingActionButton.-->
                     android:layout_height="wrap_content"
                     android:hint="@string/address"
                     android:inputType="textPostalAddress"
+                    android:maxLength="100"
                     tools:ignore="TextContrastCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -83,7 +87,7 @@ widgets like FloatingActionButton.-->
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <RadioGroup
-                android:id="@+id/comfortLevelRadioGroup"
+                android:id="@+id/comfort_level_radio_group"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="24dp">
@@ -149,7 +153,9 @@ widgets like FloatingActionButton.-->
                 android:id="@+id/note_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp">
+                android:layout_marginTop="24dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="600">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -164,7 +170,7 @@ widgets like FloatingActionButton.-->
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/submit_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
